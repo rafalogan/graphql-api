@@ -1,0 +1,30 @@
+type Mutation {
+    # Virgula opcional
+    # Mutations de User
+    newUser(
+        data: UserInput!
+    ): User!
+
+    deleteUser(
+        filter: UserFilter!
+    ): User
+
+    updateUser(
+        filter: UserFilter!
+        data: UserInput!
+    ): User
+
+    # Mutations de Profile
+    newProfile(
+        data: ProfileInput!
+    ): Profile!
+
+    deleteProfile(
+        filter: ProfileFilter!
+    ): Profile
+
+    updateProfile(
+        filter: ProfileFilter!
+        data: ProfileInput!
+    ): Profile
+}

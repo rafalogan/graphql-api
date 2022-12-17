@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: "mysql"
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root@3306
+      MYSQL_DATABASE: desafio_cap_04
+      MYSQL_USER: graphql_user 
+      MYSQL_PASSWORD: user@graphql
+    volumes:
+      - './database/mysql:/var/lib/mysql'
+    ports:
+      - 3306:3306
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 9090:8080
