@@ -14,6 +14,14 @@ services:
       - './database/mysql:/var/lib/mysql'
     ports:
       - 3306:3306
+  redis:
+    image: redis
+    restart: always
+    volumes:
+      - ./database/redis:/usr/local/etc/redis/
+      - ./database/redis/data:/var/lib/postgresql/data
+    ports:
+      - 6379:6379
   adminer:
     image: adminer
     restart: always

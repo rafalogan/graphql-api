@@ -1,4 +1,4 @@
-import { debug, error, log, warn } from "console";
+import { debug, error, info, log, warn } from "console";
 import { title } from "process";
 import { stringify } from "querystring";
 import { LoggerConfig } from "src/config/logger.config";
@@ -47,6 +47,14 @@ export const onLog = (...args: any[]) => {
   if (isDev()) return log(`${whiteBg + black} LOG: ${reset}`, `${cyan}${title}${reset}`, ...rest);
   if (isDebug) return logger.log(title, stringify(...rest));
   return;
+}
+
+export const onInfo = (...args: any[]) => {
+  const { reset, blueBg, black, cyan } = TERMINAL_COLORS;
+  const [title, ...rest] = args;
+
+  if (isDev()) return info(`${blueBg + black} INFO: ${reset}`, `${cyan}${title}${reset}`, ...rest);
+  return logger.info(title, stringify(...rest));
 }
 
 export const onWarn = (...args: any[]) => {

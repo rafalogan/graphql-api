@@ -3,3 +3,9 @@ export interface IProfile {
   name: string;
   label: string;
 }
+
+export interface ProfileFilter {
+  id?: number;
+  name?: string;
+  label?: string;
+}

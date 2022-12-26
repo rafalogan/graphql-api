@@ -8,3 +8,7 @@ export interface IUser {
   profiles?: IProfile[];
 }
 
+export interface IUserFilter {
+  id?: number;
+  email?: string;
+}
